@@ -57,8 +57,16 @@ class Application:
 
     def run(self):
         eprint.info("Starting application from {}", self.app_dir)
+        app_path = Path(self.app_dir)
+
+        if not app_path.exists():
+            eprint.error("Directory '{}' not found!", self.app_dir)
+            exit(-3)
+
         if not Path(self.app_dir).is_dir():
-            eprint.error("Not a directory: {}", self.app_dir)
+            eprint.error("'{}' is not a directory!", self.app_dir)
+            exit(-3)
+
         self._load_features()
         self._sort_features()
         self._activate_features()
