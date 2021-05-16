@@ -1,6 +1,7 @@
+import click
 from . import singleton
 
 
-def verbose(level: int, message: str):
+def verbose(message: str, level=1):
     if singleton.verbosity >= level:
-        print(message)
+        click.echo(message)

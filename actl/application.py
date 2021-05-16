@@ -55,7 +55,7 @@ class Application:
         for feature_module in self.feature_map.values():
             feature_module.activate(*self.args, **self.kwargs)
 
-    def run(self):
+    def run(self, command):
         eprint.info("Starting application from {}", self.app_dir)
         app_path = Path(self.app_dir)
 

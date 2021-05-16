@@ -2,7 +2,7 @@ from actl.application import Application
 from pathlib import Path
 
 
-def main(name, file, app_name=None, appvesion=None):
+def main(name, file=None, app_name=None, appvesion=None, app_dir=None):
 
     # When called fromt he Windows script the name is module.__name__
     if "." in name:
@@ -10,7 +10,7 @@ def main(name, file, app_name=None, appvesion=None):
 
     if name != "__main__":
         return
-
-    app_dir = Path(file).parent.joinpath("actl-cli")
+    if file:
+        app_dir = Path(file).parent
     application = Application(app_dir)
     application.run_commands()
