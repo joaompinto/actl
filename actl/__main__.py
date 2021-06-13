@@ -1,6 +1,10 @@
+import actl
+from pathlib import Path
+
+
 def main():
-    print("Hello")
+    app_dir = Path(__file__).parent.joinpath("actl-cli")
+    actl.main(__name__, app_dir=app_dir)
 
 
-if __name__ == "__main__":
-    main()
+main()
