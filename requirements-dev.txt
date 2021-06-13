@@ -5,3 +5,5 @@ pytest
 setuptools_scm
 tox
 wheel
+mkdocs
+mkdocs-material
